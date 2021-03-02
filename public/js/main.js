@@ -15,7 +15,12 @@ const btnReg = document.querySelector("button[name=registerbtn]");
 const btnst0 = document.querySelector("button#btnst0"); 
 
 btnst0.addEventListener("click", () =>{
-    localStorage.clear();
+
+    let conf = confirm("sûr à 100 %? "); 
+    if(conf){
+        localStorage.clear();
+        location.reload();  
+    }
 });
 
 
@@ -59,6 +64,11 @@ btnModal.addEventListener("click", () => {
 
 }); 
 
+let usersLength = () =>{
+    return localStorage.length;
+}
+
+
 // button enregistrer dans le modal
 btnReg.addEventListener("click", () =>{
     let regPrenom = document.querySelector("input[name=registerprenom]").value; 
@@ -70,7 +80,7 @@ btnReg.addEventListener("click", () =>{
     if(regPrenom.length > 0 && regNom.length > 0 && regClasse.length > 0 && regAge > 0){
         let user = new User(regNom, regPrenom, regClasse, regAge); 
         
-        let usID = window.localStorage.length;
+        let usID = usersLength();
         window.localStorage.setItem('user'+usID, JSON.stringify(user)); 
 
         let checkThisUsInLS = window.localStorage.getItem('user'+usID);
@@ -121,6 +131,42 @@ cartesLink.forEach(card => {
         }
         if(link == "storage0"){
             
+        }
+
+        if(link == "classes"){
+            document.querySelector(divlink).innerHTML=""; 
+            let classes = []; // array avec les classes ; 
+
+            let text = ""; 
+            let maxUs = usersLength(); 
+
+            for(let i=0; i< maxUs; i++){
+                const us = localStorage.getItem('user'+i);
+                const user = JSON.parse(us); 
+                console.log(user);
+                if(classes.indexOf(user.classe) === -1){
+                    classes.push(user.classe);
+                }
+            }
+            
+            classes.forEach(classe => {
+
+                text+="<button class='btn btn-light m-2 btnclasse'>"+classe+"</button>";
+
+                const btnclasses = document.querySelectorAll("button.btnclasse"); 
+
+                console.log(btnclasses);
+
+
+                btnclasses.forEach(e =>{
+                    e.setAttribute("onclick", () =>{ 
+                        alert('x');
+                        console.log('eeee');
+                    });
+                });
+
+            });
+            document.querySelector(divlink).innerHTML=text;
         }
     });
 });
