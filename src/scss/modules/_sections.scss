@@ -2,7 +2,15 @@ section{
 
     &#main{
         background-color: red;
+        min-height:50vh;
     }
 
-    
+    div.textlink{
+        display:none;
+
+        &.active{
+            display:block;
+        }
+    }
+
 }

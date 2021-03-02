@@ -10,11 +10,12 @@
 </head>
 <body>
     
-    <p>Ville: <span id="ville"></span></p>
+    <!-- <p>Ville: <span id="ville"></span></p>
     <p>Pays: <span id="pays"> </span></p>
-    <p>Operateur: <span id="oper"></span></p>
+    <p>Operateur: <span id="oper"></span></p> -->
 
     <header>
+        <h1 id="brand">s-CooL</h1>
         <nav class="navbar navbar-expand-md navbar-dark pb-0">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,30 +24,119 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#accueil">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#modalStag">Stagiaires</a>
+                        <a class="nav-link" href="#modalStag">Inscription</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Présences</a>
+                        <a class="nav-link" href="#presences">Présences</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Classes</a>
+                        <a class="nav-link" href="#classes">Classes</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#storage0" class="nav-link">Storage 0</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#reset" class="nav-link text-danger font-weight-bold" id="abtnrefresh">Refresh</a>
+                    </li>
+
                 </ul>
             </div>
         </nav>
     </header>
     <section id="main" class="container">
-        main
+        <div class="textlink active" id="accueil">L'accueil</div>
+        <div class="textlink">Operation dans le modal</div>
+        <div class="textlink" id="presences">Presences</div>
+        <div class="textlink" id="classes">Classes</div>
+        <div class="textlink" id="storage0">Storage 0</div>
+        <div class="textlink" id="reset">RESET</div>
     </section>
 
 
     <div id="modalStag">
         <p class="close">X</p>
 
-        Mon modal!
+        <p class="m-3">Inscription des Stagiaires:</p>
+
+        <div class="row m-3">
+
+            <div class="col-10">
+                <div class="input-group">
+                    <div class="row">
+                        <div class="col-4 m-0 p-0">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text w-100" id="prenom">Prénom:</span>
+                            </div>
+                        </div>
+                        <div class="col-8 m-0 p-0">
+                            <input type="text" class="form-control" placeholder="prénom" name="registerprenom" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row m-3">
+            <div class="col-10">
+                <div class="input-group">
+                    <div class="row">
+                        <div class="col-4 m-0 p-0">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text w-100" id="nom">Nom:</span>
+                            </div>
+                        </div>
+                        <div class="col-8 m-0 p-0">
+                            <input type="text" class="form-control w-100" placeholder="nom" name="registernom" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="col-10">
+                <div class="input-group">
+                    <div class="row">
+                        <div class="col-4 m-0 p-0">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text w-100" id="classe">Classe:</span>
+                            </div>
+                        </div>
+                        <div class="col-8 m-0 p-0">
+                            <input type="text" class="form-control w-100" placeholder="classe" name="registerclasse" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="col-10">
+                <div class="input-group">
+                    <div class="row">
+                        <div class="col-4 m-0 p-0">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text w-100" id="age">Age:</span>
+                            </div>
+                        </div>
+                        <div class="col-8 m-0 p-0">
+                            <input type="number" class="form-control w-100" placeholder="age" name="registerage" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <button class="btn btn-light btnModalLink m-2" name="registerbtn">Ajouter</button>
+            </div>
+        </div>
+
+        
+
     </div>
 
 
@@ -57,6 +147,6 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
-    <script src="./public/js/main.js"></script>
+    <script type="module" src="./public/js/main.js"></script>
 </body>
 </html>

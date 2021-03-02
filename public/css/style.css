@@ -9686,7 +9686,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 body {
-  background-color: #ddd;
+  background-color: #3268ff;
 }
 
 button.navbar-toggler {
@@ -9694,12 +9694,12 @@ button.navbar-toggler {
 }
 
 div#modalStag {
+  border-radius: 3px;
   width: 50%;
-  height: 30vh;
+  min-height: 30vh;
   background-color: #ccc;
-  border: 2px dashed pink;
   position: absolute;
-  z-index: 1051;
+  z-index: 2500;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -9720,19 +9720,25 @@ div#modalStag > p.close {
 
 div#modalStag > p.close:hover {
   cursor: pointer;
+  background-color: red;
+  color: white;
 }
 
 .hide {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1050;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2499;
   position: absolute;
+}
+
+h1#brand {
+  text-align: center;
+  font-size: 5rem;
 }
 
 .navbar {
   background-color: #3268ff;
-  border-bottom: 1px solid red;
 }
 
 .navbar li.nav-item a.nav-link {
@@ -9748,5 +9754,14 @@ div#modalStag > p.close:hover {
 
 section#main {
   background-color: red;
+  min-height: 50vh;
+}
+
+section div.textlink {
+  display: none;
+}
+
+section div.textlink.active {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

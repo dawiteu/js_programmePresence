@@ -1,6 +1,10 @@
+h1#brand{
+    text-align:center;
+    font-size:5rem;
+}
 .navbar{
     background-color: rgb(50, 104, 255);
-    border-bottom:1px solid red;
+    // border-bottom:1px solid red;
     li.nav-item{
         a.nav-link{
             text-transform: uppercase;
