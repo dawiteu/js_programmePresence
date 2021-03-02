@@ -11,28 +11,14 @@ const spip = document.querySelector("span#ip");
 //register: 
 const btnReg = document.querySelector("button[name=registerbtn]");
 
+//button storage remise a 0: 
+const btnst0 = document.querySelector("button#btnst0"); 
 
-btnReg.addEventListener("click", () =>{
-    let regPrenom = document.querySelector("input[name=registerprenom]").value; 
-    let regNom = document.querySelector("input[name=registernom]").value; 
-    let regClasse= document.querySelector("input[name=registerclasse]").value; 
-    let regAge= document.querySelector("input[name=registerage]").value;
-
-
-    if(regPrenom.length > 0 && regNom.length > 0 && regClasse.length > 0 && regAge > 0){
-        let user = new User(regNom, regPrenom, regClasse, regAge); 
-        
-        let usID = window.localStorage.length;
-        window.localStorage.setItem('user'+usID, JSON.stringify(user)); 
-
-        let checkThisUsInLS = window.localStorage.getItem('user'+usID);
-
-        console.log(JSON.parse(checkThisUsInLS));
-    }else{
-        alert('les champs doivent etre remplis!'); 
-    }
+btnst0.addEventListener("click", () =>{
+    localStorage.clear();
 });
-//fin register;'
+
+
 
 // donnees modal: 
 const btnModal = document.querySelector("a[href='#modalStag']"); 
@@ -73,6 +59,31 @@ btnModal.addEventListener("click", () => {
 
 }); 
 
+// button enregistrer dans le modal
+btnReg.addEventListener("click", () =>{
+    let regPrenom = document.querySelector("input[name=registerprenom]").value; 
+    let regNom = document.querySelector("input[name=registernom]").value; 
+    let regClasse= document.querySelector("input[name=registerclasse]").value; 
+    let regAge= document.querySelector("input[name=registerage]").value;
+
+
+    if(regPrenom.length > 0 && regNom.length > 0 && regClasse.length > 0 && regAge > 0){
+        let user = new User(regNom, regPrenom, regClasse, regAge); 
+        
+        let usID = window.localStorage.length;
+        window.localStorage.setItem('user'+usID, JSON.stringify(user)); 
+
+        let checkThisUsInLS = window.localStorage.getItem('user'+usID);
+
+        console.log(JSON.parse(checkThisUsInLS));
+        modalClose(); 
+        window.reload();
+    }else{
+        alert('les champs doivent etre remplis!'); 
+    }
+});
+//fin register;'
+
 // fin modal ; 
 
 // cartes (simulation); 
@@ -83,12 +94,33 @@ const carttextes = document.querySelectorAll("div.textlink");
 cartesLink.forEach(card => {
     card.addEventListener("click", () => {
         let link = card.getAttribute('href').substring(1); 
+        let divlink = card.getAttribute('href');
+
         if(link != "modalStag"){ // si c'est le modal on fait rien
             cartesLink.forEach(e =>{ e.parentElement.classList.remove("active")});
             card.parentElement.classList.add("active");   
-            let divlink = card.getAttribute('href');
             carttextes.forEach((e) => e.style.display="none"); 
-            document.querySelector(divlink).style.display="block";     
+            document.querySelector(divlink).style.display="block";  
+        }
+        if(link == "presences"){
+            document.querySelector(divlink).innerHTML="";
+            let nbetud = localStorage.length; 
+            let text=""; 
+            text+="Liste de personnes enregistrées: "+nbetud;
+            text+="<table class='w-100 tbluserlist'><tr><th>nom</th><th>prénom</th><th>classe</th><th>age</th></tr>";
+            
+            for(let i=0; i < nbetud; i++){
+                const pers = localStorage.getItem('user'+i);
+                const data = JSON.parse(pers); 
+                text+="<tr><td>"+data.nom+"</td><td>"+data.prenom+"</td><td>"+data.classe+"</td><td>"+data.age+"</td></tr>";
+            }
+
+            text+="</table>";
+
+            document.querySelector(divlink).innerHTML=text;
+        }
+        if(link == "storage0"){
+            
         }
     });
 });

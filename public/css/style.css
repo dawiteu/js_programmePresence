@@ -9769,4 +9769,13 @@ section div.textlink {
 section div.textlink.active {
   display: block;
 }
+
+section table.tbluserlist {
+  border: 1px solid #000;
+  text-align: center;
+}
+
+section table.tbluserlist td {
+  border-bottom: 1px dashed blue;
+}
 /*# sourceMappingURL=style.css.map */
