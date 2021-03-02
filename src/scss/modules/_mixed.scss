@@ -42,3 +42,8 @@ div#modalStag>p.close:hover{
     z-index:2499; 
     position:absolute; 
 }
+
+*::selection{
+    background-color: black;
+    color:white;
+}

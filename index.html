@@ -48,7 +48,6 @@
     </header>
     <section id="main" class="container">
         <div class="textlink active" id="accueil">L'accueil</div>
-        <div class="textlink">Operation dans le modal</div>
         <div class="textlink" id="presences">Presences</div>
         <div class="textlink" id="classes">Classes</div>
         <div class="textlink" id="storage0">Storage 0</div>
@@ -56,34 +55,38 @@
     </section>
 
 
-    <div id="modalStag">
+    <div id="modalStag" class="text-center">
         <p class="close">X</p>
 
         <p class="m-3">Inscription des Stagiaires:</p>
 
         <div class="row m-3">
 
-            <div class="col-10">
-                <div class="input-group">
-                    <div class="row">
+            <div class="col-6">
+                <div class="input-group w-100">
+                    <div class="row w-100">
                         <div class="col-4 m-0 p-0">
                             <div class="input-group-prepend">
                                 <span class="input-group-text w-100" id="prenom">Prénom:</span>
                             </div>
                         </div>
-                        <div class="col-8 m-0 p-0">
+                        <div class="col-8 m-0 p-0 w-100">
                             <input type="text" class="form-control" placeholder="prénom" name="registerprenom" required>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="col-6 text-left">
+                <p>Ville: <span id="ville"></span></p>
+            </div>
+
         </div>
 
         <div class="row m-3">
-            <div class="col-10">
-                <div class="input-group">
-                    <div class="row">
+            <div class="col-6">
+                <div class="input-group w-100">
+                    <div class="row w-100">
                         <div class="col-4 m-0 p-0">
                             <div class="input-group-prepend">
                                 <span class="input-group-text w-100" id="nom">Nom:</span>
@@ -95,12 +98,16 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-6 text-left">
+                <p>Pays: <span id="pays"></span></p>
+            </div>
         </div>
 
         <div class="row m-3">
-            <div class="col-10">
-                <div class="input-group">
-                    <div class="row">
+            <div class="col-6">
+                <div class="input-group w-100">
+                    <div class="row w-100">
                         <div class="col-4 m-0 p-0">
                             <div class="input-group-prepend">
                                 <span class="input-group-text w-100" id="classe">Classe:</span>
@@ -112,12 +119,16 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-6 text-left">
+                <p>Operateur: <span id="oper"></span></p>
+            </div>
         </div>
 
         <div class="row m-3">
-            <div class="col-10">
-                <div class="input-group">
-                    <div class="row">
+            <div class="col-6">
+                <div class="input-group w-100">
+                    <div class="row w-100">
                         <div class="col-4 m-0 p-0">
                             <div class="input-group-prepend">
                                 <span class="input-group-text w-100" id="age">Age:</span>
@@ -130,10 +141,13 @@
                 </div>
             </div>
 
-            <div class="col-3">
-                <button class="btn btn-light btnModalLink m-2" name="registerbtn">Ajouter</button>
+            <div class="col-6 text-left">
+                <p>IP: <span id="ip"></span></p> 
             </div>
+
         </div>
+
+        <button class="btn btn-light btnModalLink m-3" name="registerbtn">Ajouter</button>
 
         
 

@@ -9732,6 +9732,11 @@ div#modalStag > p.close:hover {
   position: absolute;
 }
 
+*::selection {
+  background-color: black;
+  color: white;
+}
+
 h1#brand {
   text-align: center;
   font-size: 5rem;

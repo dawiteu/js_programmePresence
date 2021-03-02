@@ -1,10 +1,12 @@
 import "./class/user.js"; 
+import { User } from "./class/user.js";
 
 const abref = document.querySelector("a#abtnrefresh"); 
 // donnes user IP : 
 const ville = document.querySelector("span#ville"); 
 const pays = document.querySelector("span#pays");
 const oper = document.querySelector("span#oper"); 
+const spip = document.querySelector("span#ip");
 
 //register: 
 const btnReg = document.querySelector("button[name=registerbtn]");
@@ -18,7 +20,14 @@ btnReg.addEventListener("click", () =>{
 
 
     if(regPrenom.length > 0 && regNom.length > 0 && regClasse.length > 0 && regAge > 0){
-        let user = ""; 
+        let user = new User(regNom, regPrenom, regClasse, regAge); 
+        
+        let usID = window.localStorage.length;
+        window.localStorage.setItem('user'+usID, JSON.stringify(user)); 
+
+        let checkThisUsInLS = window.localStorage.getItem('user'+usID);
+
+        console.log(JSON.parse(checkThisUsInLS));
     }else{
         alert('les champs doivent etre remplis!'); 
     }
@@ -41,8 +50,7 @@ let modalClose = () =>{
 }
 
 btnModal.addEventListener("click", () => { 
-    modalOpen=true; 
-    console.log(modal);
+    modalOpen=true;
     modal.style.visibility="visible";
     modal.style.opacity="1";
     let divHide = document.createElement("div"); 
@@ -50,6 +58,7 @@ btnModal.addEventListener("click", () => {
     document.body.insertBefore(divHide, document.querySelector("header"));
     let bodyHei = document.body.offsetHeight; 
     divHide.style.height = bodyHei; 
+    getIP();
     modalC.addEventListener("click", () => {
         modalClose();
     });  
@@ -77,7 +86,8 @@ cartesLink.forEach(card => {
         if(link != "modalStag"){ // si c'est le modal on fait rien
             cartesLink.forEach(e =>{ e.parentElement.classList.remove("active")});
             card.parentElement.classList.add("active");   
-            divlink = card.getAttribute('href');
+            let divlink = card.getAttribute('href');
+            carttextes.forEach((e) => e.style.display="none"); 
             document.querySelector(divlink).style.display="block";     
         }
     });
@@ -98,10 +108,11 @@ const getIP = async() => {
     await fetch('http://ip-api.com/json/') // ${..ip..}; 
     .then(response => response.json())
     .then(response => {
-        //ville.innerHTML = response.city; 
-        //pays.innerHTML = response.country; 
-        //oper.innerHTML = response.isp; 
+        ville.innerHTML = response.city; 
+        pays.innerHTML = response.country; 
+        oper.innerHTML = response.isp; 
+        spip.innerHTML = response.query; 
     })
 }
 
-getIP();
+//getIP();
