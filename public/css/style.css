@@ -9693,6 +9693,43 @@ button.navbar-toggler {
   margin-left: auto;
 }
 
+div#modalStag {
+  width: 50%;
+  height: 30vh;
+  background-color: #ccc;
+  border: 2px dashed pink;
+  position: absolute;
+  z-index: 1051;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s, opacity .3s;
+}
+
+div#modalStag > p.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  padding: 5px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+div#modalStag > p.close:hover {
+  cursor: pointer;
+}
+
+.hide {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+  position: absolute;
+}
+
 .navbar {
   background-color: #3268ff;
   border-bottom: 1px solid red;
