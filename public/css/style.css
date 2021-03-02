@@ -9684,4 +9684,32 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+body {
+  background-color: #ddd;
+}
+
+button.navbar-toggler {
+  margin-left: auto;
+}
+
+.navbar {
+  background-color: #3268ff;
+  border-bottom: 1px solid red;
+}
+
+.navbar li.nav-item a.nav-link {
+  text-transform: uppercase;
+}
+
+.navbar li.nav-item.active {
+  animation: background-color .3s;
+  background-color: red;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+section#main {
+  background-color: red;
+}
 /*# sourceMappingURL=style.css.map */

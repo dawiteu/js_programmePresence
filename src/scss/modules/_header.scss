@@ -1,0 +1,15 @@
+.navbar{
+    background-color: rgb(50, 104, 255);
+    border-bottom:1px solid red;
+    li.nav-item{
+        a.nav-link{
+            text-transform: uppercase;
+        }
+        &.active{
+            animation:background-color .3s;
+            background-color: red;
+            border-top-left-radius:5px;
+            border-top-right-radius: 5px;
+        }
+    }
+}
